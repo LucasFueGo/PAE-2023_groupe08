@@ -1,0 +1,15 @@
+### get all available
+GET {{BaseUri}}/available/getAll
+
+### get one available
+GET {{BaseUri}}/available/getOne/1
+
+### add new available
+POST  {{baseUrl}}/available/addAvailable
+Content-Type: application/json
+
+{
+  "day":1745356800000,
+  "isMorning": true
+
+}

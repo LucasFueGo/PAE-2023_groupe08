@@ -1,0 +1,5 @@
+
+### get all filters
+GET {{BaseUri}}/filter/getAll
+
+

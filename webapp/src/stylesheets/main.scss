@@ -1,0 +1,323 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500;1,600&display=swap');
+
+$cta: #FBC02D;
+$green: #40A858;
+$redInfoSell: #ff6767;
+$blue : #2e3d9b;
+
+body{
+  background-color: rgb(246, 248, 252);
+}
+
+html{
+  #user-profile-img{
+    height:20px;
+    width:auto;
+    border-radius:50%;
+    border:1px solid black;
+  }
+  main{
+    margin-top:78px;
+  }
+  .navbar-brand{
+    font-family: "Blackadder ITC";
+    font-size:25px;
+  }
+  font-size:15px;
+  font-family: "Karla", sans-serif;
+  color:#222222;
+  .background-accent-color{
+    background-color: $cta;
+    color:white;
+    border:1px solid transparent;
+    &:hover{
+      color: $cta;
+      border: 1px solid $cta;
+    }
+  }
+  footer{
+    border-top: 1px solid #cccccc;
+    h4{
+      font-family: "Blackadder ITC";
+    }
+  }
+  .warning-color-btn{
+    color:$green;
+    border:1px solid $green;
+    &:hover{
+      color:white;
+      background-color: $green;
+      border:1px solid transparent;
+    }
+  }
+  .accent-color{
+    color: $cta;
+  }
+  .warning-color{
+    color: rgba(246, 76, 42, 0.7);
+  }
+  .ff-rubik{
+    font-family: "Rubik",sans-serif;
+  }
+  #login-page, #register-page{
+    min-height:85vh;
+  }
+  #login-wrapper, #register-wrapper{
+    i{
+      font-size:12px;
+      background-color: rgba(79, 112, 255, 0.3);
+    }
+    .btn-link{
+      text-decoration: none;
+    }
+    .form-group{
+      input{
+        font-size:14px;
+        background-color: #FAFAFA;
+        border:1px solid #DDDDDD;
+        &[disabled]{
+          background-color: #e0e0e0;
+        }
+        &:focus{
+          border:1px solid #4F70FF;
+        }
+      }
+    }
+  }
+  .progress-bar{
+    height:5px;
+    border:1px solid #DDDDDD;
+    &:first-child{
+      border-right: 1px solid transparent;
+    }
+  }
+  .content-all-object{
+    text-align: left;
+    .image_object{
+      img{
+        width:100%;
+      }
+    }
+  }
+  .content-filter{
+    .select-type-object{
+      cursor:pointer;
+    }
+  }
+  .propose-buttons{
+    button.decline-propose{
+      color: $redInfoSell;
+      &:hover{
+        background-color: $redInfoSell;
+        color: white;
+      }
+    }
+    textarea{
+      margin-top: 15px;
+      width:100%;
+    }
+  }
+  .link-object{
+    position: relative;
+    min-height: 350px;
+    img{
+      width:100%;
+      cursor: pointer;
+    }
+    .informations_object{
+      cursor: pointer;
+      span{
+        font-size: 13px;
+      }
+      p.description_object{
+        margin: 0;
+      }
+    }
+  }
+  span.info_object_disponibility{
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left:0;
+    padding: 5px 15px;
+    color:white;
+  }
+  span.AS, span.PS, span.AC{
+    background-color:$green;
+  }
+  span.SO, span.RE, span.WS{
+    background-color:$redInfoSell;
+  }
+  span.PR, span.DW{
+    background-color: $blue;
+  }
+  .button-tb{
+    background-color: $green;
+    color : white;
+    width: fit-content;
+    padding: 5px 10px;
+    margin-left: 10px;
+      &:hover{
+        border: 1px solid $green;
+        color : $green;
+      }
+  }
+  .section-user{
+    .info-user{
+      margin-top: 20px;
+      img{
+        width:100%;
+        max-width: 250px;
+      }
+      .helper-button{
+        border: 1px solid black;
+        &:hover{
+          background-color: black;
+          color: white;
+        }
+      }
+    }
+  }
+  .content-all-user, .content-all-user-object{
+    display:flex;
+  }
+  .info-user-object{
+    span.info_object_disponibility{
+      cursor: pointer;
+      position: absolute;
+      top: 0px;
+      left:22px;
+      padding: 5px 15px;
+      color:white;
+    }
+  }
+  .update-button{
+    position: absolute;
+    right: 0;
+    top:0;
+    width: 50px;
+    font-size: 22px;
+    cursor: pointer;
+  }
+  .update-object{
+    img{
+      max-width: 80%;
+    }
+  }
+  #update-profile-form{
+    img{
+      max-width: 200px;
+      margin: auto;
+      border-radius:50%;
+    }
+  }
+  .content-price-input{
+    display:flex;
+    w-50{
+      width:50%;
+    }
+  }
+  .input-date-content{
+    label{
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+  }
+  .card{
+    &:hover{
+      cursor:pointer;
+      transform:scale(1.02);
+    }
+    transition: all 0.1s ease-in-out;
+    position:relative;
+    min-height:350px;
+    span.info_object_disponibility{
+      color:white;
+      padding:0;
+    }
+    span.info_available{
+      background-color:$green;
+    }
+    span.info_sell{
+      background-color:$redInfoSell;
+    }
+    span.info_propose{
+      background-color: $blue;
+    }
+    .card-img-top{
+      max-height:220px;
+      width:auto;
+      object-fit: cover;
+    }
+    .card-text{
+      position:absolute;
+      bottom:1rem;
+      left:1rem;
+      &.chaise{
+        border-color:red!important;
+        color:red!important;
+      }
+      &.fauteuil{
+        border-color:green!important;
+        color:green!important;
+      }
+      &.meuble{
+        border-color:blue!important;
+        color:blue!important;
+      }
+      &.table{
+        border-color:yellowgreen!important;
+        color:yellowgreen!important;
+      }
+      &.chaise{
+        border-color:red!important;
+        color:red!important;
+      }
+    }
+    .card-status{
+      position:absolute;
+      top:0;
+      left:0;
+      padding:0.6rem;
+    }
+  }
+  .toast-design{
+    border:1px solid red;
+    background-color: #ff3e3e;
+  }
+  #update-profile-img{
+    &:hover #overlay{
+      opacity:1;
+      cursor:pointer;
+    }
+    position:relative;
+    & img{
+      width:150px;
+      height:150px;
+      border:2px solid #dedede;
+      border-radius: 50%;
+    }
+    & #overlay{
+      transition: all 0.1s ease-in-out;
+      opacity:0;
+      & i{
+        font-size:20px;
+        color:white;
+      }
+      border-radius: 50%;
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background-color: rgba(0, 0, 0, 0.06);
+    }
+  }
+  .nav-link{
+    color:#333333;
+    &:hover{
+      color: black;
+    }
+  }
+}

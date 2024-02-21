@@ -1,0 +1,167 @@
+### Login Admin
+POST {{baseUrl}}/users/login
+Content-Type: application/json
+
+{
+  "email":"bert.riez@gmail.be",
+  "password":"Jaune;10."
+}
+
+> {%
+  client.global.set("twigToken", response.body.token);
+%}
+
+### Login user
+POST {{baseUrl}}/users/login
+Content-Type: application/json
+
+{
+  "email":"caro.line@hotmail.com",
+  "password":"mdpusr.2"
+}
+
+> {%
+  client.global.set("caroToken", response.body.token);
+%}
+
+
+
+### mofify state object to workShop
+POST {{BaseUri}}/object/toWorkShop/4
+Authorization: {{twigToken}}
+
+### mofify state object to workShop
+POST {{BaseUri}}/object/toWorkShop/8
+Authorization: {{caroToken}}
+
+
+### mofify state object to store
+POST {{BaseUri}}/object/toStore/8
+
+### modify state object to sell
+POST {{BaseUri}}/object/toSale/8
+Content-Type: application/json
+
+{
+  "price": 10
+}
+
+### modify state object to sold
+POST {{BaseUri}}/object/toSold/8
+
+### get all objects visible and specific state
+GET {{BaseUri}}/object/getAll
+
+### get all objects propose (visible = false) and all state
+GET {{BaseUri}}/object/getAllObjectPropose
+
+### get all objects for home
+GET {{BaseUri}}/object/getAllHome
+
+### get all objects by type
+GET {{BaseUri}}/object/getAll?id=3
+
+### get all objects
+GET {{BaseUri}}/object/getAbsolutelyAllObject
+
+### get one object
+GET {{BaseUri}}/object/getOne/1
+
+### modify state object to RE
+POST {{BaseUri}}/object/refuse/6
+Content-Type: application/json
+
+{
+  "refusal_notification": "test"
+}
+
+### get statistics
+POST {{BaseUri}}/object/getStatistics
+Content-Type: application/json
+
+{
+  "start-date": "2023-04-22",
+  "end-date": "2023-04-22"
+}
+
+### modify state object to accepted
+POST {{BaseUri}}/object/toAccept/8
+
+
+
+
+### get all the user's objects (by admin)
+GET {{BaseUri}}/object/getAllObjectsOfAUser/4
+Authorization: {{twigToken}}
+
+### get all the user's objects (by user)
+GET {{BaseUri}}/object/getAllObjectsOfAUser/4
+Authorization: {{caroToken}}
+
+
+
+
+### propose an object with phone number
+POST {{baseUrl}}/object/proposeObject
+Content-Type: application/json
+
+{
+  "idDate": 1,
+  "idTimeSlot": 1,
+  "idType": 1,
+  "description": "description",
+  "phoneNumber": "0470/00.00.00"
+
+}
+
+### propose an object without phone number
+POST {{baseUrl}}/object/proposeObject
+Content-Type: application/json
+
+{
+  "idDate": 1,
+  "idTimeSlot": 1,
+  "idType": 1,
+  "description": "description",
+  "phoneNumber": ""
+}
+
+
+### propose an object wiht idUser
+POST {{baseUrl}}/object/proposeObject
+Content-Type: application/json
+
+{
+  "token": "{{twigToken}}",
+  "idDate": 1,
+  "idTimeSlot": 1,
+  "idType": 1,
+  "description": "description",
+  "idUser": 1
+}
+
+### modify the object
+POST {{BaseUri}}/object/updateObject/
+Content-Type: application/json
+
+{
+  "idObject": "2",
+  "description": "test cet objet sert de test a la modif",
+  "url": "ceciEstUneUrl.vinci.be",
+  "idType": "2"
+}
+
+### get image object by id
+GET {{BaseUri}}/object/getImageObject/5
+
+### withdraw object
+POST {{BaseUri}}/object/withdrawObject/8
+
+### modify state object to sold
+POST {{BaseUri}}/object/toSoldDirectly/5
+Authorization: {{twigToken}}
+Content-Type: application/json
+
+{
+  "price": 4.5
+}

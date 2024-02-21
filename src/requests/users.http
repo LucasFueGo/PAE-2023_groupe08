@@ -1,0 +1,140 @@
+
+### Login Admin
+POST {{baseUrl}}/users/login
+Content-Type: application/json
+
+{
+  "email":"bert.riez@gmail.be",
+  "password":"Jaune;10."
+}
+
+> {%
+client.global.set("twigToken", response.body.token);
+%}
+
+### Login user
+POST {{baseUrl}}/users/login
+Content-Type: application/json
+
+{
+  "email":"caro.line@hotmail.com",
+  "password":"mdpusr.2"
+}
+
+> {%
+  client.global.set("caroToken", response.body.token);
+%}
+
+
+
+
+
+### token refresh twig
+GET {{baseUrl}}/users/refresh?token={{twigToken}}
+Content-Type: application/json
+
+
+###register
+POST {{baseUrl}}/users/register
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file"; filename="example.jpg"
+Content-Type: image/jpeg
+
+test.png
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="email"
+
+user@gmail.com
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="password"
+
+mypassword
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="firstname"
+
+John
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="lastname"
+
+Doe
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="phone"
+
+0485/98.86.42
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+### changeRoleUserUser
+POST {{baseUrl}}/users/changeRoleUser/6
+Content-Type: application/json
+Authorization: {{twigToken}}
+
+{
+  "newRole": 0
+}
+
+### changeRoleUserHelper
+POST {{baseUrl}}/users/changeRoleUser/6
+Content-Type: application/json
+Authorization: {{twigToken}}
+
+{
+  "newRole": 1
+}
+
+### changeRoleUserAdmin
+POST {{baseUrl}}/users/changeRoleUser/6
+Content-Type: application/json
+Authorization: {{twigToken}}
+
+{
+  "newRole": 2
+}
+
+### changeRoleUserHelper
+POST {{baseUrl}}/users/changeRoleUser/6
+Content-Type: application/json
+Authorization: {{caroToken}}
+
+{
+  "newRole": 1
+}
+
+
+
+### is not admin
+GET {{baseUrl}}/users/isAdmin?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRoMCIsImlkIjoxLCJleHAiOjE2Nzg4MjkwMjF9.6FK6u64fB-cP23t0LmXV2S7TruSRD5ogt6Q802mugC8
+Content-Type: application/json
+
+### is admin
+GET {{baseUrl}}/users/isAdmin?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRoMCIsImlkIjoxLCJleHAiOjE2Nzk2ODQ4NTJ9.v0OmpHa70zkoNgIzuS09qzXB4KjOFoz4k1-qZ_T5AiY
+Content-Type: application/json
+
+
+### get All User
+GET {{baseUrl}}/users/getAll
+Content-Type: application/json
+Authorization: {{twigToken}}
+
+### get All User
+GET {{baseUrl}}/users/getAll
+Content-Type: application/json
+Authorization: {{caroToken}}
+
+### Register
+POST {{baseUrl}}/users/register
+Content-Type: application/json
+
+{
+  "email":"Lucas.riez@gmail.be",
+  "password":"Jaune;10.",
+  "passwordConfirm":"Jaune;10.//",
+  "firstname": "Lucas",
+  "lastname": "Riez",
+  "phone":"+324468546465"
+}
+
+### get one user by id
+GET {{baseUrl}}/users/getUserById/6
+Authorization: {{twigToken}}
